@@ -1,15 +1,14 @@
 """
-LD算法（Levenshtein Distance）又成为编辑距离算法（Edit Distance）。
-它是以字符串A通过插入字符、删除字符、替换字符变成另一个字符串B
-操作过程的次数表示两个字符串的差异。
-
-
 to do list:
-1.添加可视化高亮动态展示
-
-"""
+    1.添加高亮动态可视化展示
+    """
 import numpy as np
 class LD(object):
+    """
+    LD算法（Levenshtein Distance）又成为编辑距离算法（Edit Distance）。
+    它是以字符串A通过插入字符、删除字符、替换字符变成另一个字符串B
+    操作过程的次数表示两个字符串的差异。
+    """
     def __init__(self):
         pass
     def ld(self,a,b):
@@ -51,16 +50,15 @@ class LD(object):
             if self.ld_mat[len_a-1][len_b-1] == 0:
                 self.ld_mat[len_a-1][len_b-1] = self.ld_and_mat(a[:len_a-1],b[:len_b-1])
         else:
-            ld_tuple= self.ld_and_mat(a[:len_a-1],b[:len_b-1]),self.ld_and_mat(a[:len_a],b[:len_b-1]),self.ld_and_mat(a[:len_a-1],b[:len_b])
             if self.ld_mat[len_a-1][len_b-1] == 0:
-                self.ld_mat[len_a-1][len_b-1] = min(ld_tuple) + 1
+                self.ld_mat[len_a-1][len_b-1] = min((self.ld_and_mat(a[:len_a-1],b[:len_b-1]),self.ld_and_mat(a[:len_a],b[:len_b-1]),self.ld_and_mat(a[:len_a-1],b[:len_b]))) + 1
         return self.ld_mat[len_a-1][len_b-1]
 
     def print_diff(self,a,b): 
         """
         根据编辑矩阵生成差异文本
 
-        编辑矩阵优先考虑左移，如果左边不为零且小于左上方
+        编辑矩阵优先考虑左移，如果左边不为零且小于等于左上方
         当移动到第一行或者第一列时，特殊考虑
         """
         index_mat_a = len(a) - 1
@@ -161,7 +159,7 @@ class LD(object):
 
 if __name__ == '__main__':
     ld_object = LD()
-    ld_object.ld_and_print_diff("AGGTC","AAAGGGTTTCC")
-    ld_object.ld_and_print_diff("AAAA","112256")
-    ld_object.ld_and_print_diff("GGATCGA","GAATTCAGTTA")
-    ld_object.ld_and_print_diff("GAATTCAGTTA","GGATCGA")
+    # ld_object.ld_and_print_diff("AGGTC","AAAGGGTTTCC")
+    ld_object.ld_and_print_diff("AAAAA","112256")
+    # ld_object.ld_and_print_diff("GGATCGA","GAATTCAGTTA")
+    # ld_object.ld_and_print_diff("GAATTCAGTTA","GGATCGA")
