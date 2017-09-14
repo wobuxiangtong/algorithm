@@ -34,17 +34,21 @@ class HillMax(object):
             # 1 - math.exp(mm-m) 越大，越应该跳过
             # 次数越多，越应该跳过
             if m >= mm:
-                if start >= len_lst - 1 or  random.uniform(0,1) < (1 - math.exp(mm-m))*times:
+                rand_uniform = random.uniform(0,1)
+                prob = (1 - math.exp(mm-m))*times
+                # print("rand_uniform :", rand_uniform,"; prob : ", prob,mm-m,start)
+                if  rand_uniform < prob:
                     return m
                 else:
                     start += step
                     times += 1
-                    print("times : ", times)
             else:
                 ## 如果不是就跳过本批次
                 # mm_pos = [p for p,v in enumerate(loc) if v == mm]
                 start += step
                 m = mm
+            if start >= len_lst - 1:
+                return m
     
 if __name__ == '__main__':
     lst = [randint(1, 100) for i in range(20)]
