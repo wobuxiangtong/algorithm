@@ -160,6 +160,6 @@ class LD(object):
 if __name__ == '__main__':
     ld_object = LD()
     # ld_object.ld_and_print_diff("AGGTC","AAAGGGTTTCC")
-    ld_object.ld_and_print_diff("AAAAA","112256")
-    # ld_object.ld_and_print_diff("GGATCGA","GAATTCAGTTA")
+    ld_object.ld_and_print_diff("GCATGCU","GATTACA")
+    ld_object.ld_and_print_diff("GGATCGA","GAATTCAGTTA")
     # ld_object.ld_and_print_diff("GAATTCAGTTA","GGATCGA")

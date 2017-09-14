@@ -105,5 +105,6 @@ class NW(object):
 
 if __name__ == '__main__':
     nw_object = NW()
-    # print(nw_object.nw("GGATCGA","GAATTCAGTTA"))
+    print(nw_object.nw("GGATCGA","GAATTCAGTTA"))
+    nw_object.nw_and_print_diff("GCATGCU","GATTACA")
     nw_object.nw_and_print_diff("AAAAA","112256")
