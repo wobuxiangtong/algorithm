@@ -20,7 +20,7 @@ EMBED_SIZE = 128            # dimension of the word embedding vectors
 SKIP_WINDOW = 2             # the context window
 NUM_SAMPLED = 64            # number of negative examples to sample
 LEARNING_RATE = 1.0
-NUM_TRAIN_STEPS = 1
+NUM_TRAIN_STEPS = 2
 VISUAL_FLD = 'visualization'
 SKIP_STEP = 5000
 
